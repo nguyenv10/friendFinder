@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Friend Finder</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="keywords" content="content for search" />
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+        <!-- jQuery -->
+        <script src="https://code.jquery.com/jquery.js"></script>
+        <!-- Bootstrap JS-->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+        <!-- select2 -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+        <style>
+            .well{
+                background: #1e5799; /* Old browsers */
+                background: -moz-linear-gradient(left, #1e5799 0%, #2a8ee0 25%, #207cca 100%, #7db9e8 100%); /* FF3.6-15 */
+                background: -webkit-linear-gradient(left, #1e5799 0%,#2a8ee0 25%,#207cca 100%,#7db9e8 100%); /* Chrome10-25,Safari5.1-6 */
+                background: linear-gradient(to right, #1e5799 0%,#2a8ee0 25%,#207cca 100%,#7db9e8 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+                filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#7db9e8',GradientType=1 );
+                color: #000;
+                padding:0 40px 0 40px;
+            }
+            .form-control{
+                width: 50%;
+            }
+            h3{
+                color: #fff;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="well">
+                <h2 class="text-center">Survey Questions</h2>
+                <hr>
+                <form id="form" method="post">
+                    <div class="form-group">
+                        <h3><strong>About You</strong></h3>
+                        <h4>Name (Required)</h4>
+                        <input type="text" id="name" name="name" class="form-control" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <h4>Link to Photo Image (Required)</h4>
+                        <input type="text" id="photo" name="photo" class="form-control" placeholder="Your Picture URL" required>
+                    </div>
+                    <hr>
+
+                    <div class="form-group">
+                        <h3><strong><i class="fa fa-arrow-circle-right"></i> Question 1</strong></h3>
+                        <h4>Your mind is always buzzing with unexplored ideas and plans.</h4>
+                        <select class="select form-control form-control" name="scores[]" id="score_1" required>
+                            <option value=""></option>
+                            <option value="1">1 (Strongly Disagree)</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5 (Strongly Agree)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <h3><strong><i class="fa fa-arrow-circle-right"></i> Question 2</strong></h3>
+                        <h4>Generally speaking, you rely more on your experience than your imagination.</h4>
+                        <select class="select form-control form-control" name="scores[]" id="score_2" required>
+                            <option value=""></option>
+                            <option value="1">1 (Strongly Disagree)</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5 (Strongly Agree)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <h3><strong><i class="fa fa-arrow-circle-right"></i> Question 3</strong></h3>
+                        <h4>You find it easy to stay relaxed and focused even when there is some pressure.</h4>
+                        <select class="select form-control form-control" name="scores[]" id="score_3" required>
+                            <option value=""></option>
+                            <option value="1">1 (Strongly Disagree)</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5 (Strongly Agree)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <h3><strong><i class="fa fa-arrow-circle-right"></i> Question 4</strong></h3>
+                        <h4>You rarely do something just out of sheer curiosity.</h4>
+                        <select class="select form-control form-control" name="scores[]" id="score_4" required>
+                            <option value=""></option>
+                            <option value="1">1 (Strongly Disagree)</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5 (Strongly Agree)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <h3><strong><i class="fa fa-arrow-circle-right"></i> Question 5</strong></h3>
+                        <h4>People can rarely upset you.</h4>
+                        <select class="select form-control form-control" name="scores[]" id="score_5" required>
+                            <option value=""></option>
+                            <option value="1">1 (Strongly Disagree)</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5 (Strongly Agree)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <h3><strong><i class="fa fa-arrow-circle-right"></i> Question 6</strong></h3>
+                        <h4>It is often difficult for you to relate to other people’s feelings.</h4>
+                        <select class="select form-control form-control" name="scores[]" id="score_6" required>
+                            <option value=""></option>
+                            <option value="1">1 (Strongly Disagree)</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5 (Strongly Agree)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <h3><strong><i class="fa fa-arrow-circle-right"></i> Question 7</strong></h3>
+                        <h4>In a discussion, truth should be more important than people’s sensitivities.</h4>
+                        <select class="select form-control form-control" name="scores[]" id="score_7" required>
+                            <option value=""></option>
+                            <option value="1">1 (Strongly Disagree)</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5 (Strongly Agree)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <h3><strong><i class="fa fa-arrow-circle-right"></i> Question 8</strong></h3>
+                        <h4>You rarely get carried away by fantasies and ideas.</h4>
+                        <select class="select form-control form-control" name="scores[]" id="score_8" required>
+                            <option value=""></option>
+                            <option value="1">1 (Strongly Disagree)</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5 (Strongly Agree)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <h3><strong><i class="fa fa-arrow-circle-right"></i> Question 9</strong></h3>
+                        <h4>You think that everyone’s views should be respected regardless of whether they are supported by facts or not.</h4>
+                        <select class="select form-control form-control" name="scores[]" id="score_9" required>
+                            <option value=""></option>
+                            <option value="1">1 (Strongly Disagree)</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5 (Strongly Agree)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <h3><strong><i class="fa fa-arrow-circle-right"></i> Question 10</strong></h3>
+                        <h4>You feel more energetic after spending time with a group of people.</h4>
+                        <select class="select form-control form-control" name="scores[]" id="score_10" required>
+                            <option value=""></option>
+                            <option value="1">1 (Strongly Disagree)</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5 (Strongly Agree)</option>
+                        </select>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="form-group text-center">
+                        <input type="submit" id="submit" style="display: none;">
+                        <button type="button" class="btn btn-info" id="search"><i class="fa fa-check-circle" aria-hidden="true"></i>
+                            Submit</button>
+                    </div>
+                </form>
+            </div>
+
+            <hr>
+            <footer class="footer">
+                <div class="container">
+                    <p><a href="/api/friends">API Friends List</a> | <a href="#">GitHub Repo</a></p>
+                </div>
+            </footer>
+
+        </div>
+
+        <!-- Modal -->
+        <div id="results-modal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h2 class="modal-title"><strong>Best Match</strong></h2>
+                    </div>
+                    <div class="modal-body">
+                        <h2 id="match-name"></h2>
+                        <img id="match-img" src="" alt="" height="300" width="300">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <script type="text/javascript">
+            $(document).ready(function() {
+                //Use select2 for search in dropdown list
+                $('.select').select2({ placeholder: 'Select', width: '50%', height:'34px' });
+
+
+                //When user click on Submit button from the survey page
+                $("#search").on("click", function(event) {
+                    //Check for validity
+                    if(!$('#form')[0].checkValidity()) {
+                        $('#submit').click();
+                    }else {
+                        //If all of the fields are filled up.
+
+                        //define data with the form value.
+                        let data = {
+                            name: $("#name").val(),
+                            photo: $("#photo").val(),
+                            scores: new Array($("#score_1").val(), $("#score_2").val(), $("#score_3").val(), $("#score_4").val(), $("#score_5").val(), $("#score_6").val(), $("#score_7").val(), $("#score_8").val(), $("#score_9").val(), $("#score_10").val())
+                        };
+
+                        $.ajax({
+                            beforeSend: function(){
+                                //$.blockUI();
+                            },
+                            success: function(response){
+                                //If find someone closest
+                                if(response.status == "1"){
+                                    let friend = response.data;
+                                    $("#match-name").text(response.name);
+                                    $("#match-img").attr("src",response.photo);
+                                    $("#results-modal").modal("show");
+                                }else{
+                                    //No result found, for the first time.
+                                    $("#match-name").text("No result found");
+                                    $("#results-modal").modal("show");
+                                }
+                            },
+                            type: 'post',
+                            url: "/api/friends",
+                            data: data,
+                            cache: false,
+                            dataType: 'json'
+                        });
+                    }
+                });
+            });
+
+        </script>
+    </body>
+</html>
